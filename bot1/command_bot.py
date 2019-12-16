@@ -11,11 +11,13 @@ from bot_funcs import *
 TOKEN = 'NjAzMDUxOTI1MjY4ODU2ODQx.XTZx9g.y_dSVCtzTeuK3JTN14Q021GVOqI'
 client = commands.Bot(command_prefix = ".")
 
-#def play_sound(ctx, mp3):
-#  channel = ctx.message.author.voice.channel
-#  voice = get(client.voice_clients, guild = ctx.guild)
-#  source = FFmpegPCMAudio(mp3)
-#  player = voice.play(source)
+client.load_extension('bot_funcs')
+
+def play_sound(ctx, mp3):
+  channel = ctx.message.author.voice.channel
+  voice = get(client.voice_clients, guild = ctx.guild)
+  source = FFmpegPCMAudio(mp3)
+  player = voice.play(source)
   
   
 
