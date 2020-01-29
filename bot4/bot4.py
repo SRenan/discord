@@ -9,8 +9,6 @@ client = commands.Bot(command_prefix = "!")
 
 online_members = []
 
-# TODO: Add a function to update online_members list
-
 ## FUNCTIONS
 def play_sound(ctx, mp3):
   channel = ctx.message.author.voice.channel
@@ -59,7 +57,7 @@ async def on_ready():
   general_vchan = current_guild.get_channel(351062875827077123)
   print("Using", general_vchan.name, "voice")
   voice = await general_vchan.connect() #voice is class VoiceState
-  source = FFmpegPCMAudio('sounds/mlghorn.mp3')
+  source = FFmpegPCMAudio('../sounds/mlghorn.mp3')
   player = voice.play(source)
 
 # Command to make the bot join a voice channel
@@ -75,7 +73,7 @@ async def join(ctx):
     await voice.move_to(channel)
   else:
     voice = await channel.connect()
-    source = FFmpegPCMAudio('sounds/mlghorn.mp3')
+    source = FFmpegPCMAudio('../sounds/mlghorn.mp3')
     player = voice.play(source)
 
 @client.command(pass_context=True)
@@ -83,7 +81,7 @@ async def son(ctx, son):
   """
   Le gros son du 2-2
   """
-  mp3 = 'sounds/'+son
+  mp3 = '../sounds/'+son
   play_sound(ctx, mp3)
 
 
