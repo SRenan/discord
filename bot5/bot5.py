@@ -48,15 +48,7 @@ async def on_ready():
   user_count = current_guild.member_count
   current_members = current_guild.members
   current_channels = current_guild.channels
-  # Get list of users
-  for m in current_members:
-    if m.status != discord.Status.offline and not m.bot:
-      print(m.name)
-      online_members.append(m.name)
-  # Get list of channels
-  for c in current_channels:
-    print(c.name, "of category", c.type)
-  print('Client logged in on', current_guild.name, "with", len(online_members), "users online out of", user_count)
+  # Start loops
   list_online.start()
   list_onvoice.start()
   # Automatically join a voice channel
