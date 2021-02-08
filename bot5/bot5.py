@@ -1,5 +1,6 @@
 import discord
 import time
+import os
 import RPi.GPIO as GPIO
 from functions import *
 from discord import Status
@@ -80,7 +81,19 @@ async def son(ctx, son):
   Le gros son du 2-2
   """
   mp3 = '../sounds/'+son
+  mp3_ext = os.path.splitext(mp3)[1]
+  if(mp3_ext != ".mp3"):
+    mp3 = mp3+'.mp3'
   play_sound(ctx, mp3)
+
+@client.command(pass_context=True)
+async def list_son(ctx):
+  """
+  List available audio files for !son
+  """
+  sons = [f for f in os.listdir('../sounds') if f.endswith('.mp3')]
+  await ctx.channel.send(sons)
+  
 
 
 # When user joins channel
