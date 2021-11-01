@@ -106,3 +106,4 @@ venv.bak/
 bot4/.idea/*
 
 token.txt
+*.json
