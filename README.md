@@ -23,16 +23,14 @@ Finally, the token for the bot must be included separately in a `token.txt` file
 To start the bot
 
 ```
-python3 bot4.py
+python3 bot6.py
 ```
 
 
 ## Features
 - Play sounds
 - Play sounds on user login
+- Capture images from camera
+    - Face/eyes/body etection with opencv
 - Count and store online users (for external use)
 
-## TODO
-- Add GPIO based on online users
-- Use multiple files
-- Use cogs

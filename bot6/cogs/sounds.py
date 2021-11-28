@@ -52,14 +52,6 @@ class Sounds(commands.Cog):
         # Get matching dictionary from list
         homie = next(item for item in self.homies["homies"] if item["name"] == member.name)
         mp3 = homie["intro"]
-        #if member.name == "PAN":
-        #  mp3 = '../sounds/bon_courage.mp3'
-        #if member.name == "Erq":
-        #  mp3 = '../sounds/dota/dp_ladies.mp3'
-        #if member.name == "Loukkk":
-        #  mp3 = '../sounds/buzzer.mp3'
-        #if member.name == "tslt":
-        #  mp3 = '../sounds/dota/Keep_laugh_06.mp3'
         try:
           vc = await after.channel.connect()
           source = FFmpegPCMAudio(mp3)
