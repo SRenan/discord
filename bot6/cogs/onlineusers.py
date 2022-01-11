@@ -7,12 +7,18 @@ from discord.ext import commands, tasks
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(8, GPIO.OUT)
+GPIO.setup(12, GPIO.OUT) #Active buzzer
 
 
 def led_blink(uptime = 1):
   GPIO.output(8, GPIO.HIGH)
   time.sleep(uptime)
   GPIO.output(8, GPIO.LOW)
+
+def buzz(pin = 12, uptime = 0.5):
+  GPIO.output(pin, GPIO.HIGH)
+  time.sleep(uptime)
+  GPIO.output(pin, GPIO.LOW)
 
 
 class online_users(commands.Cog):
@@ -31,7 +37,7 @@ class online_users(commands.Cog):
   #  except Exception as e:
   #    print(f'Error: {e}')
 
-  @tasks.loop(seconds = 15.0)
+  @tasks.loop(seconds = 5.0)
   async def list_onvoice(self):
     guilds = self.bot.guilds
     for vc in guilds[0].voice_channels:
@@ -51,6 +57,11 @@ class online_users(commands.Cog):
   @commands.command()
   async def ping(self, ctx):
     await ctx.send("pong")
+
+  @commands.command()
+  async def buzz(self, ctx):
+    await ctx.send("bzzz")
+    buzz(uptime = 0.5)
 
 
 def setup(bot):

@@ -11,6 +11,7 @@ os.chdir(botdir)
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix = "!", intents = intents)
 
+
 @bot.event
 async def on_ready():
   print('We have logged in as {0.user}'.format(bot))
