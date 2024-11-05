@@ -45,12 +45,12 @@ class Sounds(commands.Cog):
 
   @commands.Cog.listener() #Use instead of '@bot.events' inside cogs
   async def on_voice_state_update(self, member, before, after):
-    homies_names = [ item['name'] for item in self.homies["homies"]]
+    homies_names = [ item['name'] for item in self.homies]
     if member.name in homies_names:
       if before.channel == None and after.channel != None:
         print(after.channel.name)
         # Get matching dictionary from list
-        homie = next(item for item in self.homies["homies"] if item["name"] == member.name)
+        homie = next(item for item in self.homies if item["name"] == member.name)
         mp3 = homie["intro"]
         try:
           vc = await after.channel.connect()
@@ -66,5 +66,5 @@ class Sounds(commands.Cog):
         except Exception as e:
           print(f'Error trying to join a voicechannel: {e}')
 
-def setup(bot):
-  bot.add_cog(Sounds(bot))
+async def setup(bot):
+  await bot.add_cog(Sounds(bot))

@@ -39,5 +39,5 @@ class Random(commands.Cog):
       await asyncio.sleep(.5)
     await vc.disconnect()
 
-def setup(bot):
-  bot.add_cog(Random(bot))
+async def setup(bot):
+  await bot.add_cog(Random(bot))

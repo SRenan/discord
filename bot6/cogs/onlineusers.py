@@ -42,7 +42,7 @@ class online_users(commands.Cog):
     guilds = self.bot.guilds
     for vc in guilds[0].voice_channels:
       vc_mnames = [m.name for m in vc.members]
-      if any(x in vc_mnames for x in ["PAN","Erq"]):
+      if any(x in vc_mnames for x in ["Loukkk","PAN","Erq","loukk",".erq","pan2800"]):
         print("Homies online")
         led_blink(1)
 
@@ -64,5 +64,5 @@ class online_users(commands.Cog):
     buzz(uptime = 0.5)
 
 
-def setup(bot):
-  bot.add_cog(online_users(bot))
+async def setup(bot):
+  await bot.add_cog(online_users(bot))

@@ -216,5 +216,5 @@ class Camera(commands.Cog):
       print(f'{author_name} does not have permission to take picture')
     
 
-def setup(bot):
-  bot.add_cog(Camera(bot))
+async def setup(bot):
+  await bot.add_cog(Camera(bot))

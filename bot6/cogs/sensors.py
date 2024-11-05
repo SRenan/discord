@@ -35,5 +35,5 @@ class Sensors(commands.Cog):
     time.sleep(1)
     await ctx.send(msg)
 
-def setup(bot):
-  bot.add_cog(Sensors(bot))
+async def setup(bot):
+  await bot.add_cog(Sensors(bot))

@@ -18,5 +18,5 @@ class Europa(commands.Cog):
     # handle bad code
     # Post image to channel
 
-def setup(bot):
-  bot.add_cog(Europa(bot))
+async def setup(bot):
+  await bot.add_cog(Europa(bot))

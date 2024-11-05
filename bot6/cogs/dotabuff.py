@@ -19,9 +19,9 @@ class Dotabuff(commands.Cog):
     if playerid != 0:
       message = "https://www.dotabuff.com/players/"+str(playerid)
     else:
-      homies_names = [ item['name'] for item in self.homies["homies"]]
+      homies_names = [ item['name'] for item in self.homies]
       if author in homies_names:
-        homie = next(item for item in self.homies["homies"] if item["name"] == author)
+        homie = next(item for item in self.homies if item["name"] == author)
         message = homie["dotabuff"]
         #if author == "Loukkk":
         #  message = "https://www.dotabuff.com/players/54758529"
@@ -34,5 +34,5 @@ class Dotabuff(commands.Cog):
     await ctx.send(message)
 
 
-def setup(bot):
-  bot.add_cog(Dotabuff(bot))
+async def setup(bot):
+  await bot.add_cog(Dotabuff(bot))

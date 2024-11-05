@@ -19,11 +19,25 @@ python3 -m pip install -U discord.py[voice]
 
 Finally, the token for the bot must be included separately in a `token.txt` file.
 
+Some functions require a homies.json file to function
+
+```{json}
+[{
+  "name": "username",
+  "intro: "path/to/mp3"
+}]
+```
+
+## Running the bot
 
 To start the bot
-
 ```
 python3 bot6.py
+```
+
+Or via cron, run the bot for 23hours every day
+```
+0 11 * * * timeout 82800 /usr/local/bin/python3 /home/pi/mygit/discord/bot6/bot6.py
 ```
 
 

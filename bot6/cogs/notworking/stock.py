@@ -24,5 +24,5 @@ class Stock(commands.Cog):
     print(stock_message)
     await ctx.send(stock_message)
 
-def setup(bot):
-  bot.add_cog(Stock(bot))
+async def setup(bot):
+  await bot.add_cog(Stock(bot))
