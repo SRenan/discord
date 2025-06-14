@@ -2,7 +2,7 @@ import discord
 import os
 import asyncio
 import time
-import cv2
+import opencv as cv2
 import dlib
 import numpy as np
 #from mtcnn.mtcnn import MTCNN
@@ -11,8 +11,8 @@ from discord.ext import tasks, commands
 from discord.utils import get
 from utils import utils
 
-cascade_dir="/home/srenan/programs/opencv/data/haarcascades/"
-model_dir="/home/srenan/programs/models/"
+cascade_dir="/home/pi/programs/opencv/data/haarcascades/"
+model_dir="/home/pi/programs/models/"
 
 def detect_dlib(img):
   detector = dlib.get_frontal_face_detector()
@@ -50,7 +50,7 @@ def detect_dnn(img):
 class Camera(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
-    self.homise = utils.homies()
+    self.homies = utils.homies()
 
   @commands.command()
   async def snapshot(self, ctx):

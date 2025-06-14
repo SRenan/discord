@@ -22,7 +22,7 @@ class Dotabuff(commands.Cog):
       homies_names = [ item['name'] for item in self.homies]
       if author in homies_names:
         homie = next(item for item in self.homies if item["name"] == author)
-        message = homie["dotabuff"]
+        message = "https://www.dotabuff.com/players/"+str(homie["dotabuff"])
         #if author == "Loukkk":
         #  message = "https://www.dotabuff.com/players/54758529"
         #elif author == "Erq":
@@ -32,6 +32,12 @@ class Dotabuff(commands.Cog):
       else:
         message = "Unknown user"
     await ctx.send(message)
+
+  #@tasks.loop(minutes = 60)
+  #async def dotabuff_check(self)
+  #  """
+  #  I hit requests limit with requests and beautifulsoup 
+  #  """
 
 
 async def setup(bot):
